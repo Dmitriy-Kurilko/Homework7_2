@@ -2,6 +2,9 @@ from utils import check_fitness, get_profession_by_title,  get_student_by_pk
 
 
 def main():
+    '''
+    Основная программа
+    '''
     pk = int(input('Введите номер студента: '))
     student = get_student_by_pk(pk)
 
