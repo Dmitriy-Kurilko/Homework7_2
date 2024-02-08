@@ -22,7 +22,12 @@ def main():
     fitness = check_fitness(pk, title)
 
     print(f'Пригодность {fitness["fit_percent"]}%')
-    print(f'Jane Snake знает {", ".join(fitness["has"])}')
-    print(f'Jane Snake не знает {", ".join(fitness["lacks"])}')
+    if len(fitness["has"]) > 0:
+        print(f'{student["full_name"]} знает {", ".join(fitness["has"])}')
+    else: print(f'{student["full_name"]} не знает ни одного языка для этой профессии')
+    if len(fitness["lacks"]) == 0:
+        print(f'{student["full_name"]} знает все языки для этой профессии')
+    else: print(f'{student["full_name"]} не знает {", ".join(fitness["lacks"])}')
+
 
 main()

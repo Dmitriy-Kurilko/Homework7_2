@@ -49,7 +49,7 @@ def check_fitness(student, profession):
     data = {}
     student_skills = set(get_student_by_pk(student)['skills'])
     profession_skills = set(get_profession_by_title(profession)['skills'])
-    data["has"] = student_skills.intersection(profession_skills)
-    data["lacks"] = student_skills.difference(profession_skills)
+    data["has"] = [i for i in profession_skills if i in student_skills]
+    data["lacks"] = [i for i in profession_skills if i not in student_skills]
     data["fit_percent"] = len(data["has"]) * 100 / len(profession_skills)
     return data
